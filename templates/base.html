@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IP Classification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Dark butter theme background */
+        .butter-bg {
+            background-color: #1a1a1a; /* Dark background */
+        }
+        .butter-text {
+            color: #FFD700; /* Butter yellow text */
+        }
+        .butter-border {
+            border-color: #FFD700; /* Butter yellow border */
+        }
+        .butter-shadow {
+            box-shadow: 0 4px 14px 0 rgba(255, 215, 0, 0.5); /* Butter shadow */
+        }
+        .butter-hover:hover {
+            background-color: #FFD700; /* Butter hover color */
+            color: #1a1a1a; /* Text color change on hover */
+        }
+
+        /* Background animation */
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        .floating-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .floating-bg div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 215, 0, 0.2); /* Butter color with transparency */
+            border-radius: 50%;
+            animation: floating 4s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        .floating-bg div:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            left: 25%;
+            animation-duration: 6s;
+        }
+        .floating-bg div:nth-child(3) {
+            width: 75px;
+            height: 75px;
+            left: 50%;
+            animation-duration: 5s;
+        }
+        .floating-bg div:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            left: 75%;
+            animation-duration: 7s;
+        }
+
+        /* Centering the container */
+        .centered-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="butter-bg text-gray-200 relative">
+    <!-- Background animation -->
+    <div class="floating-bg">
+        <div style="top: 20%; left: 15%;"></div>
+        <div style="top: 40%; left: 35%;"></div>
+        <div style="top: 60%; left: 55%;"></div>
+        <div style="top: 80%; left: 75%;"></div>
+    </div>
+
+    <div class="container mx-auto centered-container relative z-10">
+<!-- make it base.html file for flask , jinja2  -->
+{% block content %}
+{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="w-full max-w-lg bg-gray-800 rounded-lg shadow-lg p-8 butter-shadow">
+      <h1 class="text-4xl font-bold text-center butter-text mb-8">IP Classification</h1>
+      <form action="/ipv4" method="post" class="space-y-6">
+          <div class="flex flex-col">
+              <label for="ip" class="text-xl butter-text mb-2">Enter IP Address</label>
+              <input type="text" name="ip_address" id="ip" class="bg-gray-700 text-gray-200 butter-border border-2 p-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-400 transition duration-200">
+          </div>
+          <button type="submit" class="bg-yellow-500 butter-hover text-gray-900 font-bold py-3 px-6 rounded-lg w-full transition duration-300">Classify</button>
+      </form>
+
+      <!-- Result Section -->
+      {% if ip_info %}
+      <div class="mt-8 bg-gray-700 p-6 rounded-lg butter-shadow">
+          <h2 class="text-2xl font-bold butter-text mb-4">IP Classification Results</h2>
+          <div class="grid grid-cols-2 gap-4 butter-text">
+              <div><strong>IP Address:</strong></div>
+              <div>{{ ip_address }}</div>
+              <div><strong>IP Class:</strong></div>
+              <div>{{ ip_info["IP Class"] }}</div>
+              <div><strong>IP Type:</strong></div>
+              <div>{{ ip_info["IP Type"] }}</div>
+              <div><strong>Subnet Mask:</strong></div>
+              <div>{{ ip_info["Subnet Mask"] }}</div>
+              <div><strong>Network Address:</strong></div>
+              <div>{{ ip_info["Network Address"] }}</div>
+              <div><strong>First IP Address:</strong></div>
+              <div>{{ ip_info["First IP Address"] }}</div>
+              <div><strong>Last IP Address:</strong></div>
+              <div>{{ ip_info["Last IP Address"] }}</div>
+              <div><strong>Broadcast Address:</strong></div>
+              <div>{{ ip_info["Broadcast Address"] }}</div>
+              <div><strong>Host Address Range:</strong></div>
+              <div>{{ ip_info["Host Address Range"] }}</div>
+          </div>
+      </div>
+      {% endif %}
+  </div>
+{% endblock %}

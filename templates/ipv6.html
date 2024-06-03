@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="w-full max-w-lg bg-gray-800 rounded-lg shadow-lg p-8 butter-shadow">
+    <h1 class="text-4xl font-bold text-center butter-text mb-8">Shortening IPv6 Addresses</h1>
+    <form action="/ipv6" method="post" class="space-y-6">
+        <div class="flex flex-col">
+            <label for="ip" class="text-xl butter-text mb-2">Enter IP Address</label>
+            <input type="text" name="ip_address" id="ip" class="bg-gray-700 text-gray-200 butter-border border-2 p-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-yellow-400 transition duration-200">
+        </div>
+        <button type="submit" class="bg-yellow-500 butter-hover text-gray-900 font-bold py-3 px-6 rounded-lg w-full transition duration-300">Shortening</button>
+    </form>
+
+    {% if ip_info %}
+    <div class="mt-8 bg-gray-700 p-6 rounded-lg butter-shadow">
+        <h2 class="text-2xl font-bold butter-text mb-4">Shortening IPv6 Addresses Results</h2>
+        <div class="grid grid-cols-2 gap-4 butter-text">
+ 
+            <div>{{ ip_address }}</div>
+    <br>
+            <div>{{ ip_info}}</div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
